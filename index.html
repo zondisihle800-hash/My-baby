@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine 💖</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    overflow-x: hidden;
+}
+
+/* Card */
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 25px;
+    padding: 20px;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    color: #ff4d6d;
+    font-size: 28px;
+}
+
+p {
+    color: #444;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+/* Images */
+.gallery img {
+    width: 100%;
+    border-radius: 18px;
+    margin: 10px 0;
+}
+
+/* Buttons */
+.buttons {
+    margin-top: 20px;
+    position: relative;
+    height: 60px;
+}
+
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.yes {
+    background: #ff4d6d;
+    color: white;
+}
+
+.no {
+    background: #ddd;
+    position: absolute;
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 22px;
+    animation: float 6s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+/* Mobile friendly */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+    }
+    p {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="card">
+        <h1>Ziphezinhle 💕</h1>
+
+        <p>
+            From the moment you became part of my life, everything felt softer,
+            warmer, and more beautiful. You mean more to me than words can
+            explain. I would be incredibly honoured to call you my Valentine,
+            my baby love, my person, my heart 💖
+        </p>
+
+        <div class="gallery">
+            <img src="girl and guy1.jpg">
+            <img src="girl2.jpg">
+            <img src="girl3.jpg">
+        </div>
+
+        <p>
+            So here I am, asking from the deepest part of my heart…
+        </p>
+
+        <h2 style="color:#ff4d6d;">Will you be my Valentine? 💘</h2>
+
+        <div class="buttons">
+            <button class="yes" onclick="yesClicked()">YES 💖</button>
+            <button class="no" id="noBtn" onmouseover="moveNo()">NO 😭</button>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+function yesClicked() {
+    alert("I knew it 😍💘 You just made me the happiest person alive!");
+}
+
+function moveNo() {
+    const btn = document.getElementById("noBtn");
+    const x = Math.random() * 200 - 100;
+    const y = Math.random() * 100 - 50;
+    btn.style.transform = `translate(${x}px, ${y}px)`;
+}
+
+/* Hearts */
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}, 300);
+</script>
+
+</body>
+</html>
